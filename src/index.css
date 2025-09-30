@@ -2,95 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Voice Note App Design System - Modern, minimalist with voice-focused UI */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Core Background & Surface Colors */
+    --background: 250 100% 99%;
+    --foreground: 224 15% 15%;
+    
+    /* Card & Container Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 224 15% 15%;
+    
+    /* Popover Colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --popover-foreground: 224 15% 15%;
+    
+    /* Primary Voice/Action Colors - Blue Theme */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 55%;
+    --primary-active: 217 91% 50%;
+    
+    /* Secondary Colors */
+    --secondary: 224 100% 97%;
+    --secondary-foreground: 224 15% 25%;
+    
+    /* Muted/Subtle Colors */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+    
+    /* Accent Colors - Purple for special elements */
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input Colors */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+    
+    /* Voice Recording States */
+    --voice-recording: 0 84% 60%;
+    --voice-active: 142 76% 36%;
+    --voice-inactive: 220 8% 46%;
+    
+    /* Tag Colors */
+    --tag-blue: 217 91% 60%;
+    --tag-purple: 262 83% 58%;
+    --tag-green: 142 76% 36%;
+    --tag-orange: 25 95% 53%;
+    --tag-pink: 330 81% 60%;
+    --tag-yellow: 48 96% 53%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(262 83% 58%));
+    --gradient-voice: linear-gradient(135deg, hsl(0 84% 60%), hsl(25 95% 53%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(120 76% 36%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(220 13% 91% / 0.4);
+    --shadow-md: 0 4px 6px hsl(220 13% 91% / 0.4);
+    --shadow-lg: 0 10px 15px hsl(220 13% 91% / 0.4);
+    --shadow-voice: 0 0 20px hsl(217 91% 60% / 0.3);
+    
+    /* Animations */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Sidebar Colors */
+    --sidebar-background: 250 100% 99%;
+    --sidebar-foreground: 224 15% 25%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 224 100% 97%;
+    --sidebar-accent-foreground: 224 15% 25%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    
+    --card: 224 71% 4%;
+    --card-foreground: 210 20% 98%;
+    
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+    
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 65%;
+    --primary-active: 217 91% 70%;
+    
+    --secondary: 215 27% 12%;
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 215 27% 12%;
+    --muted-foreground: 217 10% 64%;
+    
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 27% 12%;
+    --input: 215 27% 12%;
+    --ring: 217 91% 60%;
+    
+    --voice-recording: 0 84% 60%;
+    --voice-active: 142 76% 36%;
+    --voice-inactive: 217 10% 64%;
+    
+    --shadow-sm: 0 1px 2px hsl(224 71% 4% / 0.8);
+    --shadow-md: 0 4px 6px hsl(224 71% 4% / 0.8);
+    --shadow-lg: 0 10px 15px hsl(224 71% 4% / 0.8);
+    --shadow-voice: 0 0 20px hsl(217 91% 60% / 0.4);
+    
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 215 27% 12%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 215 27% 12%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -100,6 +153,151 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Voice Recording Animation */
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pulse-dot {
+    0%, 100% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Typing Animation */
+  @keyframes typing {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  /* Wave Animation for Voice Visualization */
+  @keyframes wave {
+    0%, 100% {
+      transform: scaleY(0.3);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+  
+  /* Smooth Entrance Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@layer components {
+  /* Voice Recording Button States */
+  .voice-button-idle {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground shadow-md hover:shadow-lg;
+    transition: var(--transition-smooth);
+  }
+  
+  .voice-button-recording {
+    @apply bg-red-500 hover:bg-red-600 text-white shadow-lg;
+    animation: pulse-dot 2s infinite;
+    box-shadow: var(--shadow-voice);
+  }
+  
+  .voice-button-recording::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid hsl(var(--voice-recording));
+    border-radius: inherit;
+    animation: pulse-ring 1.5s ease-out infinite;
+  }
+  
+  /* Note Card Hover Effects */
+  .note-card {
+    @apply bg-card border border-border rounded-lg p-4 shadow-sm hover:shadow-md;
+    transition: var(--transition-smooth);
+    animation: fade-in-up 0.3s ease-out;
+  }
+  
+  .note-card:hover {
+    @apply border-primary/20 shadow-lg;
+    transform: translateY(-2px);
+  }
+  
+  /* Typing Indicator */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: hsl(var(--primary));
+  }
+  
+  /* Voice Wave Visualization */
+  .voice-wave {
+    @apply bg-primary/30 rounded-full mx-0.5;
+    animation: wave 1.5s ease-in-out infinite;
+  }
+  
+  .voice-wave:nth-child(2) { animation-delay: 0.1s; }
+  .voice-wave:nth-child(3) { animation-delay: 0.2s; }
+  .voice-wave:nth-child(4) { animation-delay: 0.3s; }
+  .voice-wave:nth-child(5) { animation-delay: 0.4s; }
+  
+  /* Tag Variants */
+  .tag-blue { @apply bg-blue-100 text-blue-800 border-blue-200; }
+  .tag-purple { @apply bg-purple-100 text-purple-800 border-purple-200; }
+  .tag-green { @apply bg-green-100 text-green-800 border-green-200; }
+  .tag-orange { @apply bg-orange-100 text-orange-800 border-orange-200; }
+  .tag-pink { @apply bg-pink-100 text-pink-800 border-pink-200; }
+  .tag-yellow { @apply bg-yellow-100 text-yellow-800 border-yellow-200; }
+  
+  /* Smooth Entrance Classes */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
   }
 }
